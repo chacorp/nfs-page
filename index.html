@@ -167,10 +167,16 @@
       <p></p>      
     </div>
 
+    <div class="columns is-centered">
+      <h2 class="subtitle has-text-centered">
+        Brief illustration of the key idea.
+      </h2>
+    </div>
+
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
-          Brief illustration of the key idea. Our method localizes the influence of global expression on the local regions in the target identity mesh by utilizing per-vertex skinning weights, enabling precise expression cloning on the local region
+          Our method localizes the influence of global expression on the local regions in the target identity mesh by utilizing per-vertex skinning weights, enabling precise expression cloning on the local region.
         </div>
       </div>
     </div>
@@ -191,15 +197,21 @@
       <img class="round" style="width:960px" src="static/images/method_overview.png"/>
       <p></p>
     </div>
+    
+    <div class="columns is-centered">
+      <h2 class="subtitle has-text-centered">
+        Method overview. Illustration of the data flow at inference (a) and training (b). 
+        For simplicity, the encoders are omitted from (b) and the dotted red box indicates the losses that are exclusively applied to the ICT data. 
+      </h2>
+    </div>
 
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
-          Method overview. Illustration of the data flow at inference (a) and training (b). 
-          For simplicity, the encoders are omitted from (b) and the dotted red box indicates the losses that are exclusively applied to the ICT data. 
           Our method localizes a global expression code for each vertex based on target mesh geometry. 
+          We employ a skinning encoder that predicts the per-vertex skinning weight from the target face mesh.
+          The predicted skinning weight is used to localize the global expression code.
           Then the local deformation is predicted using the localized expression code to produce a deformed mesh. 
-          We employ a skinning encoder that predicts the per-vertex skinning weight from the target face mesh to localize the global expression code.
         </div>
       </div>
     </div>
@@ -214,7 +226,11 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
-          Indirect supervision using the predefined face segmentation aims to regularize the skinning encoder by ensuring consistent skinning weights for corresponding face regions across different face shapes. While the encoder can converge without this supervision, the estimated weights may lack the desired consistency.
+          A key aspect of our method is predicting the skinning weights that capture the relationship between facial regions and the global expression code. 
+          Unlike joint-based methods, blendshape do not utilize pre-defined skinning weights. 
+          To address this, we propose a strategy where the skinning encoder implicitly learns to predict skinning weights for the given mesh using supervision from the predefined segmentation labels.
+          This indirect supervision aims to regularize the skinning encoder by ensuring consistent skinning weights for corresponding face regions across different face shapes.
+          While the encoder can converge without this supervision, the estimated weights may lack the desired consistency.
         </div>
       </div>
     </div>
@@ -229,7 +245,8 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
-          Visualization of face skinning weight on the ICT face mesh and various unseen meshes. We extracted the maximum value in z_Skin for each vertex and calculated the mode value on each triangle for the rendering.
+          Visualization of face skinning weight on the ICT face mesh and various unseen meshes. 
+          We extracted the maximum value in z_Skin for each vertex and calculated the mode value on each triangle for the rendering.
         </div>
       </div>
     </div>
