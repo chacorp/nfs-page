@@ -194,6 +194,35 @@
       </div>
     </div>
     
+    <br/>
+    
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">Segment prediction</h2>
+      <p></p>
+    </div>
+    
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          Indirect supervision using segmentation aims to regularize the skinning encoder by ensuring consistent skinning weights for corresponding face regions across different face shapes. While the encoder can converge without this supervision, the estimated weights may lack the desired consistency.
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="columns is-centered">
+      <img class="round" style="width:960px" src="static/images/segment_prediction.png"/>
+      <p></p>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          Visualization of face skinning weight on the ICT face mesh and various unseen meshes. We extracted the maximum value in z_Skin for each vertex and calculated the mode value on each triangle for the rendering.
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
