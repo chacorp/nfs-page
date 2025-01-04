@@ -196,3 +196,7 @@ video {
   width: 80%;
   border-radius: 5px;
 }
+
+iframe {
+  aspect-ratio: 16 / 9;
+}
