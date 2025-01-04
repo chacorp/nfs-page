@@ -198,7 +198,7 @@ video {
 }
 
 iframe {
-  width: 70%;
+  width: 80%;
   aspect-ratio: 16 / 9;
   border:none;
   overflow:hidden;
