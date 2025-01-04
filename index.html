@@ -189,26 +189,31 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
-          Method overview. Illustration of the data flow at inference (a) and training (b). For simplicity, the encoders are omitted from (b) and the dotted red box indicates the losses that are exclusively applied to the ICT data.
+          Method overview. Illustration of the data flow at inference (a) and training (b). 
+          For simplicity, the encoders are omitted from (b) and the dotted red box indicates the losses that are exclusively applied to the ICT data. 
+          Our method localizes a global expression code for each vertex based on target mesh geometry. 
+          Then the local deformation is predicted using the localized expression code to produce a deformed mesh. 
+          We employ a skinning encoder that predicts the per-vertex skinning weight from the target face mesh to localize the global expression code.
         </div>
       </div>
     </div>
     
-    <br/>
+    <br/><br/>
     
     <div class="columns is-centered has-text-centered">
-      <h2 class="title is-3">Segment prediction</h2>
+      <h2 class="title is-3">Indirect supervision using segmentation</h2>
       <p></p>
     </div>
     
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
-          Indirect supervision using segmentation aims to regularize the skinning encoder by ensuring consistent skinning weights for corresponding face regions across different face shapes. While the encoder can converge without this supervision, the estimated weights may lack the desired consistency.
+          Indirect supervision using the predefined face segmentation aims to regularize the skinning encoder by ensuring consistent skinning weights for corresponding face regions across different face shapes. While the encoder can converge without this supervision, the estimated weights may lack the desired consistency.
         </div>
       </div>
     </div>
     
+    <br/><br/>
 
     <div class="columns is-centered">
       <img class="round" style="width:960px" src="static/images/segment_prediction.png"/>
