@@ -229,7 +229,7 @@
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
           A key aspect of our method is predicting the skinning weights that capture the relationship between facial regions and the global expression code. 
-          In this paper, we propose a strategy where the skinning encoder implicitly learns to predict skinning weights for the given mesh using supervision from the predefined segmentation labels.
+          In this paper, we propose a strategy where the skinning encoder implicitly learns to predict skinning weights for the given mesh using supervision from a predefined segmentation labels.
           This indirect supervision aims to regularize the skinning encoder by ensuring consistent skinning weights for corresponding face regions across different face shapes.
           While the encoder can converge without this supervision, the estimated weights may lack the desired consistency.
         </div>
@@ -254,6 +254,18 @@
       </div>
     </div>
 
+    <br/>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          To supervise the skinning encoder using the segmentation labels, we created a segmentation map that divides the face into several regions based on ICT by referring to the facial muscle group.
+          We do not force z_Skin to take a strict one-hot form, allowing for some degrees of spatial correlation to remain during training.
+          The supervision is applied exclusively when the training data is obtained from ICT. 
+        </div>
+      </div>
+    </div>
+    
   </div>
 </section>
 
