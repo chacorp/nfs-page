@@ -199,10 +199,12 @@
     </div>
     
     <div class="columns is-centered">
-      <h2 class="subtitle has-text-centered">
-        Method overview. Illustration of the data flow at inference (a) and training (b). 
-        For simplicity, the encoders are omitted from (b) and the dotted red box indicates the losses that are exclusively applied to the ICT data. 
-      </h2>
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          Method overview. Illustration of the data flow at inference (a) and training (b). 
+          For simplicity, the encoders are omitted from (b) and the dotted red box indicates the losses that are exclusively applied to the ICT data. 
+        </div>
+      </div>
     </div>
 
     <div class="columns is-centered has-text-centered">
@@ -219,7 +221,7 @@
     <br/><br/>
     
     <div class="columns is-centered has-text-centered">
-      <h2 class="title is-3">Indirect supervision using segmentation</h2>
+      <h2 class="title is-3">Supervision using the segmentation</h2>
       <p></p>
     </div>
     
@@ -227,8 +229,7 @@
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
           A key aspect of our method is predicting the skinning weights that capture the relationship between facial regions and the global expression code. 
-          Unlike joint-based methods, blendshape do not utilize pre-defined skinning weights. 
-          To address this, we propose a strategy where the skinning encoder implicitly learns to predict skinning weights for the given mesh using supervision from the predefined segmentation labels.
+          In this paper, we propose a strategy where the skinning encoder implicitly learns to predict skinning weights for the given mesh using supervision from the predefined segmentation labels.
           This indirect supervision aims to regularize the skinning encoder by ensuring consistent skinning weights for corresponding face regions across different face shapes.
           While the encoder can converge without this supervision, the estimated weights may lack the desired consistency.
         </div>
@@ -241,6 +242,8 @@
       <img class="round" style="width:960px" src="static/images/segment_prediction.png"/>
       <p></p>
     </div>
+    
+    <br/>
 
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
