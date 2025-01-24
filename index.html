@@ -176,7 +176,10 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
-          Our method localizes the influence of global expression on the local regions in the target identity mesh by utilizing per-vertex skinning weights, enabling precise expression cloning on the local region.
+          <p>
+            Our method localizes the influence of global expression on the local regions in the target mesh by utilizing per-vertex skinning weights, 
+            enabling precise expression cloning on the local region.
+          </p>
         </div>
       </div>
     </div>
@@ -201,7 +204,7 @@
     <div class="columns is-centered">
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
-          Method overview. Illustration of the data flow at inference (a) and training (b). 
+          Illustration of the data flow at inference (a) and training (b). 
           For simplicity, the encoders are omitted from (b) and the dotted red box indicates the losses that are exclusively applied to the ICT data. 
         </div>
       </div>
@@ -210,10 +213,15 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
-          Our method localizes a global expression code for each vertex based on target mesh geometry. 
-          We employ a skinning encoder that predicts the per-vertex skinning weight from the target face mesh.
-          The predicted skinning weight is used to localize the global expression code.
-          Then the local deformation is predicted using the localized expression code to produce a deformed mesh. 
+          <p>
+            We employ a skinning encoder that predicts the per-vertex skinning weight from the target mesh.
+            The predicted skinning weight is used to localize the global expression code.
+            Then the local deformation is predicted using the localized expression code to produce a deformed mesh. 
+          </p>
+          <p>
+            We utilized the synthetic data created using the ICT-Facekit and the real data from the Multiface dataset for the training.
+            During the training, we supervise identity and expression encoders using ICT blendshape.
+          </p>
         </div>
       </div>
     </div>
@@ -241,10 +249,17 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
-          A key aspect of our method is predicting the skinning weights that capture the relationship between facial regions and the global expression code. 
-          In this paper, we propose a strategy where the skinning encoder implicitly learns to predict skinning weights for the given mesh using supervision from a predefined segmentation labels.
-          This indirect supervision aims to regularize the skinning encoder by ensuring consistent skinning weights for corresponding face regions across different face shapes.
-          While the encoder can converge without this supervision, the estimated weights may lack the desired consistency.
+          <p>          
+            A key aspect of our method is predicting the skinning weights that capture the relationship between local regions and the global expression code. 
+          </p>
+          <p>
+            However, unlike joint-based methods, blendshape face models do not utilize skinning weights.
+            To address this, we supervise the skinning encoder using a predefined segmentation label, implicitly guiding the model to learn skinning weights for the given mesh.
+          </p>
+          <p>
+            This indirect supervision aims to regularize the skinning encoder by ensuring consistent skinning weights for corresponding face regions across different face shapes.
+            While the encoder can converge without this supervision, the estimated weights may lack the desired consistency.
+          </p>
         </div>
       </div>
     </div>
