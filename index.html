@@ -214,13 +214,13 @@
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
           <p>
-            We employ a skinning encoder that predicts the per-vertex skinning weight from the target mesh.
-            The predicted skinning weight is used to localize the global expression code.
-            Then the local deformation is predicted using the localized expression code to produce a deformed mesh. 
+            For the training, we utilize the synthetic data created by using the ICT-Facekit and the real data from the Multiface dataset for the training.
+            During the training, we supervise identity and expression encoders using ICT blendshape.
           </p>
           <p>
-            We utilized the synthetic data created using the ICT-Facekit and the real data from the Multiface dataset for the training.
-            During the training, we supervise identity and expression encoders using ICT blendshape.
+            In addition to identity and expression encoders, we employ a skinning encoder to predict the per-vertex skinning weight from the target mesh.
+            The skinning weight is used to localize the global expression code.
+            Given the localized expression code, the decoder outputs the local deformation, which deforms the target mesh. 
           </p>
         </div>
       </div>
@@ -253,12 +253,12 @@
             A key aspect of our method is predicting the skinning weights that capture the relationship between local regions and the global expression code. 
           </p>
           <p>
-            However, unlike joint-based methods, blendshape face models do not utilize skinning weights.
-            To address this, we supervise the skinning encoder using a predefined segmentation label, implicitly guiding the model to learn skinning weights for the given mesh.
+            However, we cannot directly supervise the model with skinning weight as blendshape face models do not utilize skinning weights.
+            To address this, we supervise the skinning encoder using a predefined segmentation label.
           </p>
           <p>
             This indirect supervision aims to regularize the skinning encoder by ensuring consistent skinning weights for corresponding face regions across different face shapes.
-            While the encoder can converge without this supervision, the estimated weights may lack the desired consistency.
+            While the skinning encoder can converge without this supervision, the estimated weights may lack the desired consistency.
           </p>
         </div>
       </div>
