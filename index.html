@@ -254,11 +254,12 @@
           </p>
           <p>
             However, we cannot directly supervise the model with skinning weight as blendshape face models do not utilize skinning weights.
-            To address this, we supervise the skinning encoder using a predefined segmentation label.
+            To address this, we supervise the skinning encoder using a segmentation label.
           </p>
           <p>
-            This indirect supervision aims to regularize the skinning encoder by ensuring consistent skinning weights for corresponding face regions across different face shapes.
-            While the skinning encoder can converge without this supervision, the estimated weights may lack the desired consistency.
+            To supervise the skinning encoder using the segmentation label, we created a segmentation map that divides the face into several regions based on ICT by referring to the facial muscle group.
+            We do not force z_Skin to take a strict one-hot form, allowing for some degrees of spatial correlation to remain during training.
+            The supervision is applied exclusively when the training data is obtained from ICT. 
           </p>
         </div>
       </div>
@@ -285,9 +286,10 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
-          To supervise the skinning encoder using the segmentation labels, we created a segmentation map that divides the face into several regions based on ICT by referring to the facial muscle group.
-          We do not force z_Skin to take a strict one-hot form, allowing for some degrees of spatial correlation to remain during training.
-          The supervision is applied exclusively when the training data is obtained from ICT. 
+          <p>
+            This indirect supervision aims to regularize the skinning encoder by ensuring consistent skinning weights for corresponding face regions across different face shapes.
+            While the skinning encoder can converge without this supervision, the estimated weights may lack the desired consistency.
+          </p>
         </div>
       </div>
     </div>
