@@ -425,23 +425,22 @@
     </div>
 
     <div class="columns is-centered">
-      <img class="round" style="width:960px" src="static/images/limitation.png"/>
+      <img class="round" style="width:720px" src="static/images/limitation.png"/>
       <p></p>
     </div>
     
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
-          One of the limitations is that the editability is bound to the ICT blendshape, which cannot handle head pose and neck movement. This can be solved if the base blendshape includes these movements.
-          Another limitation arises from the skinning encoder, as the performance drops when the skinning weight prediction is inaccurate.
+          One of the limitations is that the editability is bound to the ICT blendshape, which cannot handle head pose and neck movement. This can be solved simply by including these movements in the base blendshape.
+          The second limitation arises from the skinning encoder, as the skinning weight prediction is inaccurate when the shape largely deviates from the learned data, as shown in the figure.
           Lastly, temporal jittering occurs, as shown in the videos. Integrating a temporal module would be a potential direction for future work.
         </div>
       </div>
     </div>
 
     <br/><br/><br/><br/>
-    
-    
+        
   </div>
 </section>
 
